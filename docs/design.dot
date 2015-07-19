@@ -1,0 +1,20 @@
+digraph G {
+	rankdir = LR;
+	"I want a __ mobile application" -> tabs -> "tabs/sidemenus";
+	"I want a __ mobile application" -> sidemenus -> "tabs/sidemenus";
+
+	"tabs/sidemenus" -> "In this application, I need _(dashboard) tabs/sidemenus is _ _ _ _ " -> localstorage;
+	"In _ tab/sidemenu, I want to show all data from library" -> localstorage;
+	"In _ tab/sidemenu, I want to show all data from library" -> action;
+	"In _ tab/sidemenu, I want to show all data from library" -> plugin -> sqlite;
+
+	"tabs/sidemenus" -> "In this application, I need _(scanner) tabs/sidemenus is _ _ _ _ " -> localstorage;
+	"In _ tab/sidemenu, I want to show record a book from __(scanner)" -> localstorage;
+	"In _ tab/sidemenu, I want to show record a book from __(scanner)" -> action;
+	"In _ tab/sidemenu, I want to show record a book from __(scanner)" -> plugin -> qr_code;
+
+	"tabs/sidemenus" -> "In this application, I need _(register) tabs/sidemenus is _ _ _ _ " -> localstorage;
+	"In _ tab/sidemenu, User need to fill username, password" -> localstorage;
+	"In _ tab/sidemenu, User need to fill username, password" -> action;
+
+}
