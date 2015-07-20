@@ -34,5 +34,9 @@
   "scripts": {
     "test": "gulp"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "gherkin": "^3.0.0",
+    "nomnom": "^1.8.1"
+  }
 }
