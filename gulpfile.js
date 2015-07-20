@@ -2,8 +2,7 @@
 var path = require('path');
 var gulp = require('gulp');
 var mocha = require('gulp-mocha');
-var jshint = require('gulp-jshint');
-var jscs = require('gulp-jscs');
+var eslint = require('gulp-eslint');
 var istanbul = require('gulp-istanbul');
 var coveralls = require('gulp-coveralls');
 var babel = require('gulp-babel');
@@ -14,16 +13,17 @@ var handleErr = function (err) {
   process.exit(1);
 };
 
-gulp.task('static', function () {
-  return gulp.src([
-      '**/*.js',
-      '!node_modules/**'
-    ])
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jshint.reporter('fail'))
-    .pipe(jscs())
-    .on('error', handleErr);
+gulp.task('lint', function () {
+  return gulp.src(['lib/**/*.js'])
+    // eslint() attaches the lint output to the eslint property
+    // of the file object so it can be used by other modules.
+    .pipe(eslint())
+    // eslint.format() outputs the lint results to the console.
+    // Alternatively use eslint.formatEach() (see Docs).
+    .pipe(eslint.format())
+    // To have the process exit with an error code (1) on
+    // lint error, return the stream and pipe to failOnError last.
+    .pipe(eslint.failOnError());
 });
 
 gulp.task('pre-test', function () {
@@ -63,4 +63,4 @@ gulp.task('babel', function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['static', 'test', 'coveralls']);
+gulp.task('default', ['lint', 'test', 'coveralls']);
