@@ -37,6 +37,8 @@
   "license": "MIT",
   "dependencies": {
     "gherkin": "^3.0.0",
+    "ionic": "^1.6.1",
+    "cordova-js": "4.0.0",
     "nomnom": "^1.8.1"
   }
 }
