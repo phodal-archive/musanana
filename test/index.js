@@ -1,9 +1,13 @@
 'use strict';
 import assert from 'assert';
-import qian from '../lib';
+import Musanana from '../lib';
+import fs from "fs";
+import path from "path";
 
-describe('qian', function () {
+describe('musanana', function () {
   it('should have unit test!', function () {
-    assert(true, 'we expected this package author to add actual unit tests.');
+    var lex = fs.readFileSync(path.normalize("test/spec.minion"), 'utf8');
+    var musanana = new Musanana(lex);
+    assert(musanana.check, true);
   });
 });
