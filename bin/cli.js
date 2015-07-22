@@ -33,13 +33,15 @@ cli.main = function cliMain(opts) {
 
 	var fs = require('fs');
 	var path = require('path');
+	var Musanana = require('../lib/index');
+	var text;
 
-	var lex;
 	if (opts.file || opts.f) {
-		console.log(path.normalize(opts.file));
-		lex = fs.readFileSync(path.normalize(opts.file), 'utf8');
+		text = fs.readFileSync(path.normalize(opts.file), 'utf8');
+		var musanana = new Musanana(text);
+		musanana.run();
 	}
-	console.log(lex);
+
 };
 
 
