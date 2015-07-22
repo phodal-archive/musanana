@@ -5,9 +5,19 @@ import fs from "fs";
 import path from "path";
 
 describe('musanana', function () {
-  it('should have unit test!', function () {
-    var lex = fs.readFileSync(path.normalize("test/spec.minion"), 'utf8');
-    var musanana = new Musanana(lex);
+  var lex, musanana;
+  beforeEach(function () {
+    lex = fs.readFileSync(path.normalize("test/spec.minion"), 'utf8');
+    musanana = new Musanana(lex);
+  });
+
+  it('should create successful', function () {
+    assert(musanana.appName, 'Minion');
+    assert(musanana.appType, 'tabs');
+    assert(musanana.tabName, 'dashboard');
+  });
+
+  it('should create successful', function () {
     musanana.run();
     assert(musanana.createSuccessful, true);
   });
