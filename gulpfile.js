@@ -35,9 +35,10 @@ gulp.task('test', ['pre-test'], function (cb) {
     .pipe(babel())
     .pipe(mocha({reporter: 'spec', require: ['babel-core/register']}))
     .on('error', function (err) {
+      console.log(err);
       mochaErr = err;
     })
-    .pipe(istanbul.writeReports())
+    //.pipe(istanbul.writeReports())
     .on('end', function () {
       cb(mochaErr);
     });
