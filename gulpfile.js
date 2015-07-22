@@ -8,11 +8,6 @@ var coveralls = require('gulp-coveralls');
 var babel = require('gulp-babel');
 var plumber = require('gulp-plumber');
 
-var handleErr = function (err) {
-  console.log(err.message);
-  process.exit(1);
-};
-
 gulp.task('lint', function () {
   return gulp.src(['lib/**/*.js'])
     .pipe(eslint())
