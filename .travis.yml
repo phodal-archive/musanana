@@ -2,6 +2,4 @@ sudo: false
 language: node_js
 before_install: npm install -g cordova
 node_js:
-  - '0.10'
-  - '0.12'
-  - 'iojs'
+  - '0.12.4'
