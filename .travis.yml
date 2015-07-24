@@ -1,5 +1,5 @@
 sudo: false
 language: node_js
-before_install: npm install -g cordova
+before_install: npm install -g cordova;git clone https://github.com/phodals/qian-app-template Minions
 node_js:
   - '0.12.4'
