@@ -62,4 +62,5 @@ gulp.task('babel', function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['clone', 'lint', 'test', 'coveralls']);
+//gulp.task('default', ['clone', 'lint', 'test', 'coveralls']);
+gulp.task('default', ['clone', 'test', 'coveralls']);
