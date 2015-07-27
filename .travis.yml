@@ -1,5 +1,4 @@
 sudo: false
 language: node_js
-after_install: git clone https://github.com/phodals/qian-app-template Minions
 node_js:
   - '0.12.4'

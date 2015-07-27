@@ -7,6 +7,14 @@ var istanbul = require('gulp-istanbul');
 var coveralls = require('gulp-coveralls');
 var babel = require('gulp-babel');
 var plumber = require('gulp-plumber');
+var shell = require('shelljs');
+
+gulp.task('clone', function() {
+  if(!shell.test('-e', '.minion')) {
+    shell.exec('git clone https://github.com/phodals/qian-app-template Minions');
+    shell.exec('touch .minion');
+  }
+});
 
 gulp.task('lint', function () {
   return gulp.src(['lib/**/*.js'])
@@ -54,4 +62,4 @@ gulp.task('babel', function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['lint', 'test', 'coveralls']);
+gulp.task('default', ['clone', 'lint', 'test', 'coveralls']);
