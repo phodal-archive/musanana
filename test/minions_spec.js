@@ -9,14 +9,15 @@ describe('Minions', function () {
 
 	it('should set application name correctly', function (done) {
 		minions.setApplicationName('FD Huang');
-		fs.readFile(FILENAME, 'utf8', function (err, data) {
-			if (err) {
-				return console.log(err);
-			}
-			setTimeout(function(){
+
+		setTimeout(function () {
+			fs.readFile(FILENAME, 'utf8', function (err, data) {
+				if (err) {
+					return console.log(err);
+				}
 				assert(data.indexOf('<name>FD Huang</name>') > -1);
 				done();
-			}, 1500);
-		});
+			});
+		}, 100);
 	});
 });
