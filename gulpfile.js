@@ -11,7 +11,7 @@ var shell = require('shelljs');
 
 gulp.task('clone', function() {
   if(!shell.test('-e', '.minion')) {
-    shell.exec('git clone https://github.com/phodals/qian-app-template Minions');
+    shell.exec('git clone https://github.com/phodals/qian-app-template Minion');
     shell.exec('touch .minion');
   }
 });
