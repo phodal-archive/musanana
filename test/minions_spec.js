@@ -13,8 +13,10 @@ describe('Minions', function () {
 			if (err) {
 				return console.log(err);
 			}
-			assert(data.indexOf('<name>FD Huang</name>') > -1);
-			done();
+			setTimeout(function(){
+				assert(data.indexOf('<name>FD Huang</name>') > -1);
+				done();
+			}, 1500);
 		});
 	});
 });
